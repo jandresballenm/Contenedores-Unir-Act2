@@ -1,5 +1,5 @@
 services:
-  # ... (servicio database sin cambios) ...
+  # Servicio database
   database:
     image: postgres:16
     container_name: mi-bd
@@ -20,7 +20,7 @@ services:
       retries: 10
       start_period: 10s
 
-  # Servicio de aplicación Go (MODIFICADO)
+  # Servicio de aplicación Go
   backend:
     build:
       context: .
@@ -41,7 +41,7 @@ services:
       - app-network
     restart: unless-stopped
 
-  # ... (servicio frontend sin cambios) ...
+  # Servicio frontend
   frontend:
     image: caddy:latest
     container_name: go-blog-caddy
